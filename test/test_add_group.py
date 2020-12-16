@@ -7,4 +7,4 @@ def test_add_group(app, excel_groups):
     app.group.add_new_group(group)
     new_groups = app.group.get_group_list()
     old_groups.append(group)
-    assert sorted(new_groups, key=Group.id_or_max) == sorted(old_groups, key=Group.id_or_max)
+    assert sorted(new_groups, key=lambda group: group.name) == sorted(old_groups, key=lambda group: group.name)

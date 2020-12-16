@@ -26,6 +26,11 @@ def get_groups_from_excel():
     wb = xl.Workbooks.Open(work_dir + '\\data\\groups.xlsx')
     wsh = wb.Sheets[1]
     groups = []
+#    row = 1
+#    while wsh.Cells[row, 1].Value() is not None:
+#        group_name = wsh.Cells[row, 1].Value()
+#        groups.append(Group(name=group_name))
+#        row += 1
     for row in range(1, 11):
         group_name = wsh.Cells[row, 1].Value()
         groups.append(Group(name=group_name))

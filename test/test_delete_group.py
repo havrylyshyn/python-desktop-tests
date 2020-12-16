@@ -10,4 +10,4 @@ def test_delete_group(app):
     app.group.delete_group(group_to_delete)
     new_groups = app.group.get_group_list()
     del old_groups[group_to_delete.id-1]
-    assert sorted(new_groups, key=Group.id_or_max) == sorted(old_groups, key=Group.id_or_max)
+    assert sorted(new_groups, key=lambda group: group.name) == sorted(old_groups, key=lambda group: group.name)
